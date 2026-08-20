@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+Payment Cancelled - NovaStore
+{% endblock %}
+
+
+{% block content %}
+
+<section class="result-page">
+
+    <div class="result-card cancel-card">
+
+        <div class="result-icon">
+            ×
+        </div>
+
+        <p class="result-label">
+            PAYMENT CANCELLED
+        </p>
+
+        <h1>
+            Payment Cancelled
+        </h1>
+
+        <p>
+            Your payment was cancelled.
+            Your cart has been kept.
+        </p>
+
+        <a
+            href="/cart"
+            class="hero-button">
+
+            Return to Cart
+
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{
+  "directories": [
+    "templates",
+    "static",
+    "static/css",
+    "static/js",
+    "static/images",
+    "database"
+  ],
+  "files": [
+    "app.py",
+    "config.py",
+    "requirements.txt",
+    ".env",
+    ".gitignore",
+    "templates/base.html",
+    "templates/index.html",
+    "templates/cart.html",
+    "templates/success.html",
+    "templates/cancel.html",
+    "static/css/style.css",
+    "static/js/app.js",
+    "database/shop.db"
+  ]
+}

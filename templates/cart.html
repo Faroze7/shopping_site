@@ -1,0 +1,180 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+Your Cart - NovaStore
+{% endblock %}
+
+
+{% block content %}
+
+<main class="cart-page">
+
+    <div class="cart-container">
+
+        <div class="cart-title">
+
+            <p>
+                YOUR SHOPPING CART
+            </p>
+
+            <h1>
+                Your Cart
+            </h1>
+
+        </div>
+
+
+        {% if cart %}
+
+        <div class="cart-layout">
+
+
+            <!-- ITEMS -->
+
+            <div class="cart-items">
+
+                {% for product in cart %}
+
+                <div class="cart-item">
+
+                    <img
+                        src="{{ product.image }}"
+                        alt="{{ product.name }}">
+
+
+                    <div class="cart-item-info">
+
+                        <h3>
+                            {{ product.name }}
+                        </h3>
+
+                        <p>
+                            {{ product.description }}
+                        </p>
+
+                        <strong>
+                            ₹{{ "%.2f"|format(
+                                product.price / 100
+                            ) }}
+                        </strong>
+
+                    </div>
+
+
+                    <button
+                        class="remove-btn"
+                        onclick="removeFromCart(
+                            {{ product.id }}
+                        )">
+
+                        Remove
+
+                    </button>
+
+                </div>
+
+                {% endfor %}
+
+            </div>
+
+
+            <!-- SUMMARY -->
+
+            <div class="order-summary">
+
+                <h2>
+                    Order Summary
+                </h2>
+
+
+                <div class="summary-row">
+
+                    <span>
+                        Items
+                    </span>
+
+                    <span>
+                        {{ cart|length }}
+                    </span>
+
+                </div>
+
+
+                <div class="summary-row total">
+
+                    <span>
+                        Total
+                    </span>
+
+                    <strong>
+                        ₹{{ "%.2f"|format(
+                            total / 100
+                        ) }}
+                    </strong>
+
+                </div>
+
+
+                <form
+                    action="/checkout"
+                    method="POST">
+
+                    <button
+                        type="submit"
+                        class="checkout-btn">
+
+                        Proceed to Payment →
+
+                    </button>
+
+                </form>
+
+
+                <a
+                    href="/"
+                    class="continue-shopping">
+
+                    ← Continue Shopping
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        {% else %}
+
+        <div class="empty-cart">
+
+            <div class="empty-icon">
+                🛒
+            </div>
+
+            <h2>
+                Your cart is empty
+            </h2>
+
+            <p>
+                Looks like you haven't added
+                anything yet.
+            </p>
+
+            <a
+                href="/"
+                class="hero-button">
+
+                Start Shopping
+
+            </a>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</main>
+
+{% endblock %}

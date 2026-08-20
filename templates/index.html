@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+NovaStore - Home
+{% endblock %}
+
+
+{% block content %}
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <p class="hero-tag">
+            NEW COLLECTION
+        </p>
+
+        <h1>
+            Upgrade Your
+            <span>Everyday.</span>
+        </h1>
+
+        <p>
+            Discover premium products designed
+            for modern living.
+        </p>
+
+        <a
+            href="#products"
+            class="hero-button">
+
+            Shop Now
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<section
+    id="products"
+    class="products-section">
+
+    <div class="section-heading">
+
+        <p>
+            OUR COLLECTION
+        </p>
+
+        <h2>
+            Featured Products
+        </h2>
+
+    </div>
+
+
+    <div class="product-grid">
+
+        {% for product in products %}
+
+        <div class="product-card">
+
+            <div class="product-image">
+
+                <img
+                    src="{{ product.image }}"
+                    alt="{{ product.name }}">
+
+            </div>
+
+
+            <div class="product-info">
+
+                <h3>
+                    {{ product.name }}
+                </h3>
+
+                <p>
+                    {{ product.description }}
+                </p>
+
+
+                <div class="product-bottom">
+
+                    <strong>
+                        ₹{{ "%.2f"|format(
+                            product.price / 100
+                        ) }}
+                    </strong>
+
+
+                    <button
+                        onclick="addToCart(
+                            {{ product.id }}
+                        )">
+
+                        Add to Cart
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+{% endblock %}

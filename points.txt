@@ -1,0 +1,11 @@
+GET     /api/products
+GET     /api/products/<id>
+
+POST    /api/cart/add
+DELETE  /api/cart/remove/<id>
+
+GET     /api/cart
+
+POST    /checkout
+
+POST    /webhook/stripe
